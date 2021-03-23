@@ -11,3 +11,8 @@ npm install blessed@0.1.81
 npm start
 
 git -c commit.gpgsign=false commit
+
+## Install deps according to package-lock.json
+npm ci
+
+npm run user03
