@@ -17,7 +17,6 @@ export default class SocketClient {
             }
         };
     
-        console.log(options);
         const http = await import(this.protocol);
         const req = http.request(options);
         req.end();
