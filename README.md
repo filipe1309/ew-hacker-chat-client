@@ -9,6 +9,10 @@
 
 Project developed during EW JS Expert v2.
 
+### Server application
+
+https://github.com/filipe1309/ew-hacker-chat-server
+
 ## :computer: Technologies
 
 -   [Nodejs](https://nodejs.org/en/)
