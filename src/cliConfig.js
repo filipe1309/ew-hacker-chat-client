@@ -6,7 +6,7 @@ export default class CliConfig {
 
         const { hostname, port, protocol } = new URL(hostUri);
 
-        this.hostname = hostname;
+        this.host = hostname;
         this.port = port;
         this.protocol = protocol.replace(/\W/, '');
     }
