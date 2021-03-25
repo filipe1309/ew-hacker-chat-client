@@ -19,7 +19,7 @@ export default class SocketClient {
                 data
                     .toString()
                     .split('\n')
-                    .filter(line => !!line.trim())
+                    .filter(line => !!line)
                     .map(JSON.parse)
                     .map(({ event, message }) => {
                         this.#serverListener.emit(event, message)
