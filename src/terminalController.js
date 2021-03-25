@@ -3,7 +3,7 @@ import { constants } from "./constants.js";
 
 export default class TerminalController {
     #usersColors = new Map();
-    
+
     constructor() {}
 
     #pickColor() {
@@ -20,9 +20,9 @@ export default class TerminalController {
     }
 
     #onInputReceived(eventEmitter) {
-        return function () {
+        return function() {
             const message = this.getValue();
-            console.log(message);
+            eventEmitter.emit(constants.events.app.MESSAGE_SENT, message);
             this.clearValue();
         };
     }
@@ -31,9 +31,9 @@ export default class TerminalController {
         return msg => {
             const { userName, message } = msg;
             const color = this.#getUserColor(userName);
-            
+
             chat.addItem(`{${color}}{bold}${userName}{/}: ${message}`);
-            
+
             screen.render();
         };
     }
@@ -42,13 +42,13 @@ export default class TerminalController {
         return msg => {
             const [userName] = msg.split(/\s/);
             const color = this.#getUserColor(userName);
-            
+
             activityLog.addItem(`{${color}}{bold}${msg.toString()}{/}`);
-            
+
             screen.render();
         };
     }
-    
+
     #onStatusChanged({ screen, status }) {
         return users => {
             const { content } = status.items.shift();
@@ -59,14 +59,14 @@ export default class TerminalController {
                 const color = this.#getUserColor(userName);
                 status.addItem(`{${color}}{bold}${userName}{/}`);
             });
-            
+
             screen.render();
         };
     }
 
     #registerEvents(eventEmmiter, components) {
         eventEmmiter.on(constants.events.app.MESSAGE_RECEIVED, this.#onMessageReceived(components));
-        eventEmmiter.on(constants.events.app.ACTIVITY_UPDATED, this.#onLogChanged(components));
+        eventEmmiter.on(constants.events.app.ACTIVITYLOG_UPDATED, this.#onLogChanged(components));
         eventEmmiter.on(constants.events.app.STATUS_UPDATED, this.#onStatusChanged(components));
     }
 
@@ -88,12 +88,12 @@ export default class TerminalController {
         /*
         // Tests
         setInterval(() => {
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'devOnTheRun join');
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'johnDoe join');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'devOnTheRun join');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'johnDoe join');
             eventEmmiter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'Hello World!',  userName: 'devOnTheRun'});
             eventEmmiter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'Hi!',  userName: 'johnDoe'});
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'devOnTheRun left');
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'johnDoe left');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'devOnTheRun left');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'johnDoe left');
         }, 1000)
 
         const users = ['devOnTheRun'];
