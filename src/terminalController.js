@@ -3,7 +3,7 @@ import { constants } from "./constants.js";
 
 export default class TerminalController {
     #usersColors = new Map();
-    
+
     constructor() {}
 
     #pickColor() {
@@ -20,9 +20,9 @@ export default class TerminalController {
     }
 
     #onInputReceived(eventEmitter) {
-        return function () {
+        return function() {
             const message = this.getValue();
-            console.log(message);
+            eventEmitter.emit(constants.events.app.MESSAGE_SENT, message);
             this.clearValue();
         };
     }
@@ -31,9 +31,9 @@ export default class TerminalController {
         return msg => {
             const { userName, message } = msg;
             const color = this.#getUserColor(userName);
-            
+
             chat.addItem(`{${color}}{bold}${userName}{/}: ${message}`);
-            
+
             screen.render();
         };
     }
@@ -42,13 +42,13 @@ export default class TerminalController {
         return msg => {
             const [userName] = msg.split(/\s/);
             const color = this.#getUserColor(userName);
-            
+
             activityLog.addItem(`{${color}}{bold}${msg.toString()}{/}`);
-            
+
             screen.render();
         };
     }
-    
+
     #onStatusChanged({ screen, status }) {
         return users => {
             const { content } = status.items.shift();
@@ -59,7 +59,7 @@ export default class TerminalController {
                 const color = this.#getUserColor(userName);
                 status.addItem(`{${color}}{bold}${userName}{/}`);
             });
-            
+
             screen.render();
         };
     }
