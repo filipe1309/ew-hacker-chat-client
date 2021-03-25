@@ -66,7 +66,7 @@ export default class TerminalController {
 
     #registerEvents(eventEmmiter, components) {
         eventEmmiter.on(constants.events.app.MESSAGE_RECEIVED, this.#onMessageReceived(components));
-        eventEmmiter.on(constants.events.app.ACTIVITY_UPDATED, this.#onLogChanged(components));
+        eventEmmiter.on(constants.events.app.ACTIVITYLOG_UPDATED, this.#onLogChanged(components));
         eventEmmiter.on(constants.events.app.STATUS_UPDATED, this.#onStatusChanged(components));
     }
 
@@ -88,12 +88,12 @@ export default class TerminalController {
         /*
         // Tests
         setInterval(() => {
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'devOnTheRun join');
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'johnDoe join');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'devOnTheRun join');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'johnDoe join');
             eventEmmiter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'Hello World!',  userName: 'devOnTheRun'});
             eventEmmiter.emit(constants.events.app.MESSAGE_RECEIVED, { message: 'Hi!',  userName: 'johnDoe'});
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'devOnTheRun left');
-            eventEmmiter.emit(constants.events.app.ACTIVITY_UPDATED, 'johnDoe left');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'devOnTheRun left');
+            eventEmmiter.emit(constants.events.app.ACTIVITYLOG_UPDATED, 'johnDoe left');
         }, 1000)
 
         const users = ['devOnTheRun'];
