@@ -1,3 +1,15 @@
+#!/usr/bin/env node
+
+/*
+hacker-chat \
+ --username devontherun \
+ --room sala01
+
+./index.js \
+ --username devontherun \
+ --room sala01
+*/
+
 /*
 node index.js \
  --username devontherun \
