@@ -10,5 +10,8 @@ export const constants = {
             JOIN_ROOM: 'joinRoom',
             MESSAGE: 'message'
         }
+    },
+    env: {
+        PRODUCTION_URL: 'https://ew-hacker-chat-server.herokuapp.com/'
     }
 }
