@@ -7,7 +7,9 @@
 
 ## 💬 About
 
-Project developed during EW JS Expert v3.
+Hacker chat client implemented with WebSocket and NodeJS.
+
+> Project developed during EW JS Expert v3.
 
 ### Server application
 
@@ -19,7 +21,7 @@ https://github.com/filipe1309/ew-hacker-chat-server
 -   [Blessed](https://www.npmjs.com/package/blessed)
 -   [Docker](https://www.docker.com/)
 
-## Requirements
+## 📜 Requirements
 
 -   [Nodejs v15](https://nodejs.org/en/)
 
@@ -29,7 +31,7 @@ https://github.com/filipe1309/ew-hacker-chat-server
 npm i -g @devontherun/ew-hacker-chat-client
 ```
 
-## Running
+## 🏃 Running
 
 Connect to the rumm with your username
 
