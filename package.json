@@ -11,8 +11,8 @@
         "user02": "node index.js --username bobDylan --room sala01 --hostUri http://localhost:9898",
         "user03": "node index.js --username johDoe --room sala02 --hostUri http://localhost:9898",
         "user04": "node index.js --username bobMarley --room sala02 --hostUri http://localhost:9898",
-        "user05": "node index.js --username devOnTheRun --room sala01 --hostUri HEROKU_URL",
-        "user06": "node index.js --username bobDylan --room sala01 --hostUri HEROKU_URL"
+        "user05": "node index.js --username devOnTheRun --room sala01",
+        "user06": "node index.js --username bobDylan --room sala01"
     },
     "keywords": [],
     "author": "",
