@@ -19,9 +19,31 @@ https://github.com/filipe1309/ew-hacker-chat-server
 -   [Blessed](https://www.npmjs.com/package/blessed)
 -   [Docker](https://www.docker.com/)
 
-## :octocat: Setup
+## Requirements
 
-### Installation
+-   [Nodejs v15](https://nodejs.org/en/)
+
+## 💿 Installing
+
+```sh
+npm i -g @devontherun/ew-hacker-chat-client
+```
+
+## Running
+
+Connect to the rumm with your username
+
+```sh
+hacker-chat --username yourUserNameHere --room roomName01
+```
+
+> -   replace yourUserNameHere with ...you username, && roomName01 with ...wait for it... the room name \o/
+
+## :octocat: Contributing
+
+Feedback, bug reports, and pull requests are welcome!
+
+### 💿 Installing
 
 ```sh
 # Clone this repo
@@ -34,12 +56,14 @@ cd ew-hacker-chat-client
 npm ci
 ```
 
-### 🏃 Runnning
+### 🏃 Local Runnning
 
 ```sh
-npm start
-# app will run at: http://localhost:9898
+-> npm run user01
 ```
+
+> Users user01 to user 04 use local server (http://localhost:9898)
+> & users user05 and user06 use heroku server (https://ew-hacker-chat-server.herokuapp.com/)
 
 ---
 
